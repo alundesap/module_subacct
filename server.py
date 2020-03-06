@@ -156,10 +156,12 @@ def get_unpw():
 # If there is no path then just return Hello World and this module's instance number
 # Requests passed through the app-router will never hit this route.
 @app.route('/')
+@app.route('/subacct/')
 def hello_world():
     output = '<strong>Hello Subacct! I am instance ' + str(os.getenv("CF_INSTANCE_INDEX", 0)) + '</strong> Try these links.</br>\n'
     output += '<a href="/env">/env</a><br />\n'
     output += '<a href="/subacct/test">/subacct/test</a><br />\n'
+    output += '<a href="/subacct/links">/subacct/links</a><br />\n'
     output += '<a href="/subacct/chrome">/subacct/chrome</a><br />\n'
     output += '<a href="/subacct/db_only">/subacct/db_only</a><br />\n'
     output += '<a href="/auth_python/db_valid">/auth_python/db_valid</a><br />\n'
@@ -214,6 +216,7 @@ def admin_links():
     output += '<a href="/subacct/admin/setpw">/subacct/admin/setpw</a><br />\n'
     output += '<a href="/subacct/admin/delpw">/subacct/admin/delpw</a><br />\n'
     output += '<a href="/subacct/admin/authcheck">/subacct/admin/authcheck</a><br />\n'
+    output += '<a href="/subacct/">Return</a><br />\n'
     return output
 
 @app.route('/subacct/admin/getpw')
@@ -282,10 +285,10 @@ def admin_setpw_result():
 
     try:
         cursor.callproc("SYS.USER_SECURESTORE_INSERT", ("ChromeStore", False, "CHRPassWord", hex2store))
-        output += 'key CLIUserPass with value ' + "*****" + '=' + hex2store + ' was inserted into store ChromeStore.' + '<br >\n'
+        output += 'key CHRUserPass with value ' + "*****" + '=' + hex2store + ' was inserted into store ChromeStore.' + '<br >\n'
         chrpwd = pwd
     except:
-        output += 'key CLIUserPass likely already exists. Try deleting first.' + '<br >\n'
+        output += 'key CHRUserPass likely already exists. Try deleting first.' + '<br >\n'
 
 #    # Close the DB connection
     ss_conn.close()
