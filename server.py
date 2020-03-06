@@ -325,6 +325,10 @@ def admin_delpw():
 
 @app.route('/subacct/chrome')
 def subacct_chrome():
+
+    global chrusr
+    global chrpwd
+
     output = "<!DOCTYPE HTML>\n"
     output += "<html>\n"
     output += "<head>\n"
