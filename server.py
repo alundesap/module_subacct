@@ -37,7 +37,7 @@ env = AppEnv()
 # mkdir -p local
 # pip install -t local -r requirements.txt -f /tmp
 port = int(os.getenv("PORT", 9099))
-hanass = env.get_service(name='HEADLESS_SS')
+hanass = env.get_service(name='GEN_HEADLESS_SS')
 ss_conn = ""
 chrusr = ""
 chrpwd = ""
@@ -157,11 +157,11 @@ def get_unpw():
 # Requests passed through the app-router will never hit this route.
 @app.route('/')
 def hello_world():
-    output = '<strong>Hello World! I am instance ' + str(os.getenv("CF_INSTANCE_INDEX", 0)) + '</strong> Try these links.</br>\n'
+    output = '<strong>Hello Subacct! I am instance ' + str(os.getenv("CF_INSTANCE_INDEX", 0)) + '</strong> Try these links.</br>\n'
     output += '<a href="/env">/env</a><br />\n'
-    output += '<a href="/headless/test">/headless/test</a><br />\n'
-    output += '<a href="/headless/chrome">/headless/chrome</a><br />\n'
-    output += '<a href="/headless/db_only">/headless/db_only</a><br />\n'
+    output += '<a href="/subacct/test">/subacct/test</a><br />\n'
+    output += '<a href="/subacct/chrome">/subacct/chrome</a><br />\n'
+    output += '<a href="/subacct/db_only">/subacct/db_only</a><br />\n'
     output += '<a href="/auth_python/db_valid">/auth_python/db_valid</a><br />\n'
     return output
     
@@ -184,39 +184,39 @@ def dump_env():
     return output
 
 # Coming through the app-router
-@app.route('/headless/links')
-@app.route('/headless/links/')
-def headless_links():
+@app.route('/subacct/links')
+@app.route('/subacct/links/')
+def subacct_links():
     output = '<strong>Hello World! I am instance ' + str(os.getenv("CF_INSTANCE_INDEX", 0)) + '</strong> Try these links.</br>\n'
-    output += '<a href="/headless/test">/headless/test</a><br />\n'
-    output += '<a href="/headless/admin/links">/headless/admin/links</a><br />\n'
-    output += '<a href="/headless/chrome">/headless/chrome</a><br />\n'
-    output += '<a href="/headless/db_only">/headless/db_only</a><br />\n'
+    output += '<a href="/subacct/test">/subacct/test</a><br />\n'
+    output += '<a href="/subacct/admin/links">/subacct/admin/links</a><br />\n'
+    output += '<a href="/subacct/chrome">/subacct/chrome</a><br />\n'
+    output += '<a href="/subacct/db_only">/subacct/db_only</a><br />\n'
     output += '<a href="/auth_python/db_valid">/auth_python/db_valid</a><br />\n'
     return output
 
 # If there is a request for a python/test, return Testing message and module's instance number
-@app.route('/headless/test')
+@app.route('/subacct/test')
 def unauth_test():
     return 'Python UnAuthorized Test, Yo! <br />\nI am instance ' + str(os.getenv("CF_INSTANCE_INDEX", 0))
 
-@app.route('/headless/admin')
+@app.route('/subacct/admin')
 def admin_python_home():
     output = '<strong>Password Administration</strong> Try these links.</br>\n'
-    output += '<a href="/headless/admin/links">/headless/admin/links</a><br />\n'
-    output += '<a href="/headless/test">/headless/test</a><br />\n'
+    output += '<a href="/subacct/admin/links">/subacct/admin/links</a><br />\n'
+    output += '<a href="/subacct/test">/subacct/test</a><br />\n'
     return output
 
-@app.route('/headless/admin/links')
+@app.route('/subacct/admin/links')
 def admin_links():
     output = '<strong>Password Administration</strong> Try these links.</br>\n'
-    output += '<a href="/headless/admin/getpw">/headless/admin/getpw</a><br />\n'
-    output += '<a href="/headless/admin/setpw">/headless/admin/setpw</a><br />\n'
-    output += '<a href="/headless/admin/delpw">/headless/admin/delpw</a><br />\n'
-    output += '<a href="/headless/admin/authcheck">/headless/admin/authcheck</a><br />\n'
+    output += '<a href="/subacct/admin/getpw">/subacct/admin/getpw</a><br />\n'
+    output += '<a href="/subacct/admin/setpw">/subacct/admin/setpw</a><br />\n'
+    output += '<a href="/subacct/admin/delpw">/subacct/admin/delpw</a><br />\n'
+    output += '<a href="/subacct/admin/authcheck">/subacct/admin/authcheck</a><br />\n'
     return output
 
-@app.route('/headless/admin/getpw')
+@app.route('/subacct/admin/getpw')
 def admin_getpw():
     output = '<strong>Password Administration Current</strong></br>\n'
 
@@ -225,13 +225,13 @@ def admin_getpw():
 
     output += get_unpw()
 
-    output += '<a href="/headless/admin">Back to Admin</a><br />\n'
+    output += '<a href="/subacct/admin">Back to Admin</a><br />\n'
     return output
 
-@app.route('/headless/admin/setpw')
+@app.route('/subacct/admin/setpw')
 def admin_setpw():
     output = '<strong>Password Administration</strong></br>\n'
-    output += '<form action="/headless/admin/setpw_result" method="post">\n'
+    output += '<form action="/subacct/admin/setpw_result" method="post">\n'
     output += '<table cellspacing="0" cellpadding="0">\n'
     output += '  <tr><td align="right">User Name:</td><td align="left"><input type="text" name="username" size="30" maxlength="25"></td></tr>\n'
     output += '  <tr><td align="right">Password:</td><td align="left"><input type="password" name="password" size="30" maxlength="25"></td></tr>\n'
@@ -240,7 +240,7 @@ def admin_setpw():
     output += '</form>\n'
     return output
 
-@app.route('/headless/admin/setpw_result', methods=['POST'])
+@app.route('/subacct/admin/setpw_result', methods=['POST'])
 def admin_setpw_result():
     output = '<strong>Password Administration Result</strong></br>\n'
 
@@ -290,10 +290,10 @@ def admin_setpw_result():
 #    # Close the DB connection
     ss_conn.close()
 
-    output += '<a href="/headless/admin">Back to Admin</a><br />\n'
+    output += '<a href="/subacct/admin">Back to Admin</a><br />\n'
     return output
 
-@app.route('/headless/admin/delpw')
+@app.route('/subacct/admin/delpw')
 def admin_delpw():
     output = '<strong>Password Deletion</strong></br>\n'
 
@@ -317,11 +317,11 @@ def admin_delpw():
 
     output += 'key CHRUserName and CHRPassWord were deleted from store ChromeStore.' + '<br />\n'
 
-    output += '<a href="/headless/admin">Back to Admin</a><br />\n'
+    output += '<a href="/subacct/admin">Back to Admin</a><br />\n'
     return output
 
-@app.route('/headless/chrome')
-def headless_chrome():
+@app.route('/subacct/chrome')
+def subacct_chrome():
     output = "<!DOCTYPE HTML>\n"
     output += "<html>\n"
     output += "<head>\n"
@@ -330,7 +330,7 @@ def headless_chrome():
     output += "</head>\n"
     output += "<h4>Headless Chrome</h4><br />\n"
     output += '<body style="font-family: Tahoma, Geneva, sans-serif">\n'
-    output += '    <a href="/headless/pagelist" target="chrome">Captured Pages</a><br />\n'
+    output += '    <a href="/subacct/pagelist" target="chrome">Captured Pages</a><br />\n'
 
     try:
         from selenium import webdriver
@@ -546,15 +546,15 @@ def headless_chrome():
     output += '\n'
     return Response(output, mimetype='text/html' , status=200,)
 
-@app.route('/headless/pagelist')
-def headless_page_list():
+@app.route('/subacct/pagelist')
+def subacct_page_list():
     return send_from_directory('/root/app/pages', 'index.html', mimetype='text/html')
 
-@app.route('/headless/pages')
-def headless_pages():
+@app.route('/subacct/pages')
+def subacct_pages():
     return send_from_directory('/root/app/pages', 'page' + request.args.get('page') + '.png', mimetype='image/png')
 
-@app.route('/headless/post', methods=['POST'])
+@app.route('/subacct/post', methods=['POST'])
 def unauth_post():
     output = 'Python Post to DB (Dangerous!). \n'
     output += '\n'
@@ -567,7 +567,7 @@ def unauth_post():
 
     return Response(output, mimetype='application/json' , status=201,)
 
-@app.route('/headless/set_env')
+@app.route('/subacct/set_env')
 def set_pyenv():
     output = '\n Set Environment variable... \n'
     if request.args.get('PATHS_FROM_ECLIPSE_TO_PYTHON'):
@@ -579,7 +579,7 @@ def set_pyenv():
     output += '\n'
     return Response(output, mimetype='text/plain' , status=200,)
 
-@app.route('/headless/env')
+@app.route('/subacct/env')
 def dump_pyenv():
     output = '\n Key Environment variables... \n'
     output += 'PYTHONHOME: ' + str(os.getenv("PYTHONHOME", 0)) + '\n'
@@ -599,7 +599,7 @@ def dump_pyenv():
     output += '\n'
     return output
 
-@app.route('/headless/attach')
+@app.route('/subacct/attach')
 def do_attach():
     output = '\n Attaching to debugger... \n'
     attach(5678,"localhost")
@@ -607,7 +607,7 @@ def do_attach():
     return output
 
 # If there is a request for a python/test2, return Testing message and then check JWT and connect to the data service and retrieve some data
-@app.route('/headless/db_only')
+@app.route('/subacct/db_only')
 def unauth_db_only():
     output = 'Python UnAuthorized DB Only. \n'
     #Enable to trigger debugging
@@ -679,7 +679,7 @@ def unauth_db_only():
     return output
 
 # If there is a request for a python/test2, return Testing message and then check JWT and connect to the data service and retrieve some data
-@app.route('/headless/admin/authcheck')
+@app.route('/subacct/admin/authcheck')
 def auth_check():
     output = 'Python Authorized DB Validated Request. \n'
     output += '\n'
