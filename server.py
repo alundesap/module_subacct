@@ -508,7 +508,7 @@ def subacct_chrome():
             print (py_ex)
             print (py_ex.args)
         driver.get_screenshot_as_file('/root/app/pages/' + 'page08.png')
-        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
+        #return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
         ##US East (VA)
         #regionsComboInput.send_keys('US East (VA)')
         ##CreateNewSubAccountDialog--subdomain-inner
