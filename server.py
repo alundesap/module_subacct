@@ -373,14 +373,14 @@ def subacct_chrome():
         email = driver.find_element_by_id('j_username')
         driver.get_screenshot_as_file('/root/app/pages/' + 'page01.png')
 
-        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
-
         email.send_keys(chrusr) 
         password = driver.find_element_by_id('j_password') 
         password.send_keys(chrpwd)
         login = driver.find_element_by_id('logOnFormSubmit') 
         driver.get_screenshot_as_file('/root/app/pages/' + 'page02.png')
 
+        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
+    
         login.click()
         #time.sleep(2) 
 
