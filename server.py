@@ -362,7 +362,7 @@ def subacct_chrome():
         #output += '    <p>' + request.args.get('page') + '</p><br />\n'
         driver.get('https://account.us1.hana.ondemand.com/cockpit/#/globalaccount/aTeam/subaccounts')
         #driver.get('https://www.conciletime.com')
-        #time.sleep(1)
+        time.sleep(1)
         try:
             WebDriverWait(driver,10).until(cond.visibility_of_element_located((By.ID, "j_username")))
         except (ElementNotVisibleException) as py_ex:
@@ -378,7 +378,7 @@ def subacct_chrome():
         password.send_keys(chrpwd)
         login = driver.find_element_by_id('logOnFormSubmit') 
         driver.get_screenshot_as_file('/root/app/pages/' + 'page02.png')
-
+        output += "CHRUSR:" + chrusr + "<br />\n"
         return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
     
         login.click()
