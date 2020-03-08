@@ -381,7 +381,6 @@ def subacct_chrome():
         login = driver.find_element_by_id('logOnFormSubmit') 
         driver.get_screenshot_as_file('/root/app/pages/' + 'page02.png')
         output += "CHRUSR:" + chrusr + "<br />\n"
-        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
     
         login.click()
         #time.sleep(2) 
@@ -408,6 +407,8 @@ def subacct_chrome():
 
 
         driver.get_screenshot_as_file('/root/app/pages/' + 'page03.png')
+        
+        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
 
         #__jsview1--addSubAccount
         #$("#__jsview1--addSubAccount").tap();
