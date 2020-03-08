@@ -422,7 +422,7 @@ def subacct_chrome():
             print (py_ex)
             print (py_ex.args)
         driver.get_screenshot_as_file('/root/app/pages/' + 'page04.png')
-        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
+        #return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
         #CreateNewSubAccountDialog--displayName-inner
         displayName = driver.find_element_by_id('CreateNewSubAccountDialog--displayName-inner')
         #$("#CreateNewSubAccountDialog--displayName-inner").val("aokheadless");
@@ -458,7 +458,7 @@ def subacct_chrome():
             print (py_ex)
             print (py_ex.args)
         driver.get_screenshot_as_file('/root/app/pages/' + 'page05.png')
-        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
+        #return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
         #CreateNewSubAccountDialog--providersCombo-hiddenInput
         #$("#CreateNewSubAccountDialog--providersCombo-hiddenInput").tap();
         #$("#__item8-CreateNewSubAccountDialog--providersCombo-0").tap();    # Amazon Web Services(AWS)
@@ -480,7 +480,7 @@ def subacct_chrome():
             print (py_ex)
             print (py_ex.args)
         driver.get_screenshot_as_file('/root/app/pages/' + 'page06.png')
-        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
+        #return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
         ##Amazon Web Services (AWS)
         #providersComboInput.send_keys('Amazon Web Services (AWS)')
         ##CreateNewSubAccountDialog--regionsCombo-hiddenInput
