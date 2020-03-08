@@ -426,7 +426,7 @@ def subacct_chrome():
         #CreateNewSubAccountDialog--displayName-inner
         displayName = driver.find_element_by_id('CreateNewSubAccountDialog--displayName-inner')
         #$("#CreateNewSubAccountDialog--displayName-inner").val("aokheadless");
-        displayName.send_keys('abcheadless')
+        displayName.send_keys('abcsubacct')
         #CreateNewSubAccountDialog--description-inner
         description = driver.find_element_by_id('CreateNewSubAccountDialog--description-inner')
         #$("#CreateNewSubAccountDialog--description-inner").val("Test subaccount creation via headless browser.");
@@ -514,7 +514,7 @@ def subacct_chrome():
         ##CreateNewSubAccountDialog--subdomain-inner
         subdomain = driver.find_element_by_id('CreateNewSubAccountDialog--subdomain-inner')
         #$("#CreateNewSubAccountDialog--subdomain-inner").val("abcheadless");
-        subdomain.send_keys('xyzheadless')
+        subdomain.send_keys('xyzsubacct')
         ##CreateNewSubAccountDialog--betaEnabledCF-CB
         #$("#CreateNewSubAccountDialog--betaEnabledCF-CB").tap();
         #$("#CreateNewSubAccountDialog--subdomain-inner").focus();
