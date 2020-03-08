@@ -445,11 +445,11 @@ def subacct_chrome():
         #CreateNewSubAccountDialog--environmentsCombo-hiddenInput
         #$("#CreateNewSubAccountDialog--environmentsCombo-labelText").html("Cloud Foundry")
         #CreateNewSubAccountDialog--environmentsCombo
-        environmentsComboInput = driver.find_element_by_id('CreateNewSubAccountDialog--environmentsCombo')
+        #environmentsComboInput = driver.find_element_by_id('CreateNewSubAccountDialog--environmentsCombo')
         #environmentsComboInput.send_keys('Cloud Foundry')
-        environmentsComboInput.click()
-        environmentsComboSelect = driver.find_element_by_id('__item7-CreateNewSubAccountDialog--environmentsCombo-1')
-        environmentsComboSelect.click()
+        #environmentsComboInput.click()
+        #environmentsComboSelect = driver.find_element_by_id('__item7-CreateNewSubAccountDialog--environmentsCombo-1')
+        #environmentsComboSelect.click()
         #time.sleep(1)
         try:
             WebDriverWait(driver,10).until(cond.visibility_of_element_located((By.ID, "CreateNewSubAccountDialog--providersCombo")))
@@ -458,7 +458,7 @@ def subacct_chrome():
             print (py_ex)
             print (py_ex.args)
         driver.get_screenshot_as_file('/root/app/pages/' + 'page05.png')
-        #return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
+        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
         #CreateNewSubAccountDialog--providersCombo-hiddenInput
         #$("#CreateNewSubAccountDialog--providersCombo-hiddenInput").tap();
         #$("#__item8-CreateNewSubAccountDialog--providersCombo-0").tap();    # Amazon Web Services(AWS)
