@@ -528,7 +528,7 @@ def subacct_chrome():
         #    print (py_ex)
         #    print (py_ex.args)
         driver.get_screenshot_as_file('/root/app/pages/' + 'page09.png')
-        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
+        #return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
         #betaEnabledCF = driver.find_element_by_id('CreateNewSubAccountDialog--betaEnabledCF-CB')
         #betaEnabledCF.click()
         #try:
@@ -552,7 +552,7 @@ def subacct_chrome():
             output += "subDomain is OK!"
 
         driver.get_screenshot_as_file('/root/app/pages/' + 'page10.png')
-        return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
+        #return Response(output + "</body>\n" + "</html>\n\n", mimetype='text/html' , status=200,)
         ##__popover8
         #doneMessage = driver.find_element_by_id('__popover8')
         #time.sleep(1)
