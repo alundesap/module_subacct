@@ -514,7 +514,7 @@ def subacct_chrome():
         ##CreateNewSubAccountDialog--subdomain-inner
         subdomain = driver.find_element_by_id('CreateNewSubAccountDialog--subdomain-inner')
         #$("#CreateNewSubAccountDialog--subdomain-inner").val("abcheadless");
-        subdomain.send_keys('xyzsubacct')
+        subdomain.send_keys('xyzabcacct')
         ##CreateNewSubAccountDialog--betaEnabledCF-CB
         #$("#CreateNewSubAccountDialog--betaEnabledCF-CB").tap();
         #$("#CreateNewSubAccountDialog--subdomain-inner").focus();
